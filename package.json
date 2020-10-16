@@ -1,6 +1,6 @@
 {
   "name": "daylight",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "An awesome and new app service",
   "main": "main.js",
   "author": "",
@@ -22,5 +22,11 @@
     "start": "electron .",
     "build": "electron-builder build --win --publish never",
     "deploy": "electron-builder build --win --publish always"
+  },
+  "build": {
+    "win": {
+      "certificateFile": "cert.js",
+      "certificatePassword": "password"
+    }
   }
 }
