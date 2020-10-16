@@ -1,6 +1,6 @@
 {
   "name": "daylight",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "An awesome and new app service",
   "main": "main.js",
   "author": "",
@@ -20,15 +20,6 @@
   },
   "build": {
     "appId": "com.daylight.app",
-    "nsis": {
-      "artifactName": "Daylight-Setup-Windows",
-      "oneClick": true,
-      "perMachine": false,
-      "deleteAppDataOnUninstall": true,
-      "allowToChangeInstallationDirectory": false,
-      "runAfterFinish": true,
-      "differentialPackage": true
-    },
     "win": {
       "target": "nsis",
       "icon": "build/icon.png",
