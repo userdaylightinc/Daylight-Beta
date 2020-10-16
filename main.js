@@ -3,15 +3,11 @@ if(require('electron-squirrel-startup')) return;
 let mainWindow;
 if(require('electron-squirrel-startup') == true ) app.quit();
 
-const server = 'https://update.electronjs.org'
-const url = `${server}/userdaylightinc/Daylight-Beta/${process.platform}-${process.arch}/${app.getVersion()}`
-
-
-autoUpdater.setFeedURL({ url })
-
-setInterval(() => {
-  autoUpdater.checkForUpdates()
-}, 10000)
+require('update-electron-app')({
+  repo: 'userdaylightinc/Daylight-Beta',
+  updateInterval: '5 minutes',
+  logger: require('electron-log')
+})
 
 
 
@@ -59,21 +55,3 @@ ipcMain.on('app_version', (event) => {
   event.sender.send('app_version', { version: require(__dirname + "/package.json").version });
 });
 
-autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
-  const dialogOpts = {
-    type: 'info',
-    buttons: ['Restart', 'Later'],
-    title: 'Application Update',
-    message: process.platform === 'win32' ? releaseNotes : releaseName,
-    detail: 'A new version has been downloaded. Restart the application to apply the updates.'
-  }
-
-  dialog.showMessageBox(dialogOpts).then((returnValue) => {
-    if (returnValue.response === 0) autoUpdater.quitAndInstall()
-  })
-})
-
-autoUpdater.on('error', message => {
-  console.error('There was a problem updating the application')
-  app.quit()
-})
