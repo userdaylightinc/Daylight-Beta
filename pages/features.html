@@ -200,6 +200,20 @@ footer p {
   background-color: #333;
   color: white;
 }
+
+#notification {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 200px;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.hidden {
+  display: none;
+}
     </style>
   </head>
   <body class="text-center">
@@ -254,6 +268,19 @@ footer p {
       </div>
     </div>
   </div>
+
+  <div id="notification" class="hidden">
+    <p id="message"></p>
+    <button id="close-button" onClick="closeNotification()">
+      Close
+    </button>
+    <button id="restart-button" onClick="restartApp()" class="hidden">
+      Restart
+    </button>
+  </div>
+
+
+  <script src="autoupdate.js"></script>
 
     
 
