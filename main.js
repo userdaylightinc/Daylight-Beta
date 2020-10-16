@@ -13,7 +13,8 @@ function createWindow () {
     height: 900,
     title: "Daylight Launcher",
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
+      preload: path.join(__dirname, 'preload.js'),
+      nodeIntegration: true
     },
     icon: require('path').join('icon.png')
   })
@@ -30,6 +31,8 @@ function createWindow () {
   mainWindow.once('ready-to-show', () => {
     autoUpdater.checkForUpdatesAndNotify();
   });
+
+  mainWindow.webContents.openDevTools()
 
 }
 
