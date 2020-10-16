@@ -1,15 +1,13 @@
 const { app, BrowserWindow, ipcMain, Menu, autoUpdater } = require('electron');
-
+if(require('electron-squirrel-startup')) return;
 let mainWindow;
 
 const server = 'https://update.electronjs.org'
-const feed = `${server}/userdaylightinc/Daylight/${process.platform}-${process.arch}/${app.getVersion()}`
+const feed = `${server}/userdaylightinc/Daylight-Main/${process.platform}-${process.arch}/${app.getVersion()}`
 console.log(feed)
 autoUpdater.setFeedURL(feed)
 
-setInterval(() => {
-  autoUpdater.checkForUpdates()
-}, 10000)
+
 
 function createWindow () {
   mainWindow = new BrowserWindow({
@@ -31,6 +29,9 @@ function createWindow () {
 
 
   Menu.setApplicationMenu(null)
+  setInterval(() => {
+    autoUpdater.checkForUpdates()
+  }, 10000)
   
 }
 

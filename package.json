@@ -1,6 +1,6 @@
 {
   "name": "daylight",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An awesome and new app service",
   "main": "main.js",
   "author": "",
@@ -10,23 +10,36 @@
     "electron-builder": "^20.40.2"
   },
   "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
     "electron-updater": "^4.0.6",
     "update-electron-app": "^2.0.1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/userdaylightinc/Daylight.git"
+    "url": "https://github.com/userdaylightinc/Daylight-Main.git"
+  },
+  "build": {
+    "appId": "com.daylight.app",
+    "nsis": {
+      "artifactName": "Daylight-Setup-Windows",
+      "oneClick": true,
+      "perMachine": false,
+      "deleteAppDataOnUninstall": true,
+      "allowToChangeInstallationDirectory": false,
+      "runAfterFinish": true,
+      "differentialPackage": true
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.png",
+      "certificateFile": "cert.pfx",
+      "certificatePassword": "password"
+    }
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
     "build": "electron-builder build --win --publish never",
     "deploy": "electron-builder build --win --publish always"
-  },
-  "build": {
-    "win": {
-      "certificateFile": "cert.pfx",
-      "certificatePassword": "password"
-    }
   }
 }
