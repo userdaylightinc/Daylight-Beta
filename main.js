@@ -1,5 +1,6 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const { autoUpdater } = require('electron-updater');
+require('update-electron-app')()
 
 let mainWindow;
 
@@ -20,10 +21,15 @@ function createWindow () {
   });
 
   mainWindow.webContents.openDevTools()
+
+  
+  // autoUpdater.setFeedURL("https://github.com/hydrogen-studio/Daylight.git")
+  // autoUpdater.checkForUpdates().then(r => {
+  //   console.log(r)
+  // })
 }
 
 app.on('ready', () => {
-  autoUpdater.setFeedURL({ url: "https://github.com/hydrogen-studio/Daylight.git", provide: "github" })
   createWindow();
 });
 

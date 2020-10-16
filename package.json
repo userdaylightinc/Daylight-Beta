@@ -1,12 +1,8 @@
 {
   "name": "daylight",
-  "version": "0.0.9",
+  "version": "0.0.12",
   "description": "An awesome and new app service",
   "main": "main.js",
-  "scripts": {
-    "build": "electron-builder build --win --publish never",
-    "deploy": "electron-builder build --win --publish always"
-  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -14,14 +10,17 @@
     "electron-builder": "^20.40.2"
   },
   "dependencies": {
-    "electron-updater": "^4.0.6"
+    "electron-updater": "^2.23.3",
+    "update-electron-app": "^2.0.1"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/hydrogen-studio/Daylight.git"
   },
-  "win": {
-    "certificateFile": "./cert.pfx",
-    "certificatePassword": "password"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "build": "electron-builder build --win --publish never",
+    "deploy": "electron-builder build --win --publish always"
   }
 }
