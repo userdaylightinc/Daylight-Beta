@@ -3,7 +3,11 @@ const path = require("path")
 let mainWindow;
 const { autoUpdater } = require('electron-updater');
 
+
 function createWindow () {
+  
+
+
   mainWindow = new BrowserWindow({
     width: 1400,
     height: 900,

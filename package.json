@@ -1,7 +1,7 @@
 {
   "name": "daylight",
   "version": "1.0.0",
-  "description": "",
+  "description": "An awesome and new app service",
   "main": "main.js",
   "scripts": {
     "build": "electron-builder build --win --publish never",
@@ -19,5 +19,9 @@
   "repository": {
     "type" : "git",
     "url" : "https://github.com/hydrogen-studio/Daylight.git"
+  },
+  "win": {
+    "certificateFile": "./cert.pfx",
+    "certificatePassword": "password"
   }
 }
