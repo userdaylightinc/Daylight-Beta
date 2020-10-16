@@ -23,6 +23,7 @@ function createWindow () {
 }
 
 app.on('ready', () => {
+  autoUpdater.setFeedURL({ url: "https://github.com/hydrogen-studio/Daylight.git", provide: "github" })
   createWindow();
 });
 
