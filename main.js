@@ -4,7 +4,7 @@ let mainWindow;
 if(require('electron-squirrel-startup') == true ) app.quit();
 
 const server = 'https://update.electronjs.org'
-const url = `${server}/userdaylightinc/Daylight-Main/${process.platform}-${process.arch}/${app.getVersion()}`
+const url = `${server}/userdaylightinc/Daylight-Beta/${process.platform}-${process.arch}/${app.getVersion()}`
 
 
 autoUpdater.setFeedURL({ url })
