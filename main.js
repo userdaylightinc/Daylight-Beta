@@ -1,39 +1,25 @@
-const { Menu, app, BrowserWindow, ipcMain } = require('electron');
-const path = require("path")
-let mainWindow;
+const { app, BrowserWindow, ipcMain } = require('electron');
 const { autoUpdater } = require('electron-updater');
 
+let mainWindow;
 
 function createWindow () {
-  
-
-
   mainWindow = new BrowserWindow({
-    width: 1400,
-    height: 900,
-    title: "Daylight Launcher",
+    width: 800,
+    height: 600,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
-      nodeIntegration: true
+      nodeIntegration: true,
     },
-    icon: require('path').join('icon.png')
-  })
-  Menu.setApplicationMenu(null)
-
-  // and load the index.html of the app.
+  });
   mainWindow.loadURL(`file://${__dirname}/pages/home.html`)
-
-  mainWindow.maximize()
   mainWindow.on('closed', function () {
     mainWindow = null;
   });
-
   mainWindow.once('ready-to-show', () => {
     autoUpdater.checkForUpdatesAndNotify();
   });
 
   mainWindow.webContents.openDevTools()
-
 }
 
 app.on('ready', () => {
@@ -52,16 +38,14 @@ app.on('activate', function () {
   }
 });
 
-ipcMain.on('app_version', (event) => {
-  event.sender.send('app_version', { version: app.getVersion() });
-});
-
-
 autoUpdater.on('update-available', () => {
-  console.log("test")
   mainWindow.webContents.send('update_available');
 });
+
 autoUpdater.on('update-downloaded', () => {
-  console.log("test")
   mainWindow.webContents.send('update_downloaded');
+});
+
+ipcMain.on('restart_app', () => {
+  autoUpdater.quitAndInstall();
 });
