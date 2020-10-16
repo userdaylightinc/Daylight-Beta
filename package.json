@@ -1,6 +1,6 @@
 {
   "name": "daylight",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "An awesome and new app service",
   "main": "main.js",
   "author": "",
@@ -10,7 +10,7 @@
     "electron-builder": "^20.40.2"
   },
   "dependencies": {
-    "electron-updater": "^4.0.0",
+    "electron-updater": "^4.0.6",
     "update-electron-app": "^2.0.1"
   },
   "repository": {
@@ -25,7 +25,7 @@
   },
   "build": {
     "win": {
-      "certificateFile": "cert.js",
+      "certificateFile": "cert.pfx",
       "certificatePassword": "password"
     }
   }
