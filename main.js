@@ -1,7 +1,15 @@
-const { app, BrowserWindow, ipcMain, Menu } = require('electron');
-const { autoUpdater } = require('electron-updater');
+const { app, BrowserWindow, ipcMain, Menu, autoUpdater } = require('electron');
 
 let mainWindow;
+
+const server = 'https://update.electronjs.org'
+const feed = `${server}/userdaylightinc/Daylight/${process.platform}-${process.arch}/${app.getVersion()}`
+console.log(feed)
+autoUpdater.setFeedURL(feed)
+
+setInterval(() => {
+  autoUpdater.checkForUpdates()
+}, 10000)
 
 function createWindow () {
   mainWindow = new BrowserWindow({
@@ -19,7 +27,7 @@ function createWindow () {
     autoUpdater.checkForUpdatesAndNotify();
   });
 
-  // mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools()
 
 
   Menu.setApplicationMenu(null)

@@ -1,12 +1,12 @@
 {
   "name": "daylight",
-  "version": "0.0.16",
+  "version": "0.0.1",
   "description": "An awesome and new app service",
   "main": "main.js",
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^5.0.1",
+    "electron": "^5.0.13",
     "electron-builder": "^20.40.2"
   },
   "dependencies": {
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/hydrogen-studio/Daylight.git"
+    "url": "https://github.com/userdaylightinc/Daylight.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
