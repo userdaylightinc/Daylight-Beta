@@ -1,0 +1,37 @@
+{
+  "name": "daylight",
+  "version": "0.0.3",
+  "description": "An awesome and new app service",
+  "main": "main.js",
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^5.0.13",
+    "electron-builder": "^20.40.2",
+    "electron-packager": "^15.1.0"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-updater": "^4.0.6",
+    "update-electron-app": "^2.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/userdaylightinc/Daylight-Main.git"
+  },
+  "build": {
+    "appId": "com.daylight.app",
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.png",
+      "certificateFile": "cert.pfx",
+      "certificatePassword": "password"
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "build": "electron-builder build --win --publish never",
+    "deploy": "electron-builder build --win --publish always"
+  }
+}
