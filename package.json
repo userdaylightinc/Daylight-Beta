@@ -1,6 +1,6 @@
 {
   "name": "daylight",
-  "version": "0.0.2-beta",
+  "version": "0.0.3-beta",
   "description": "An awesome and new app service",
   "main": "main.js",
   "scripts": {
