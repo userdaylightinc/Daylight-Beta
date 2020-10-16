@@ -62,5 +62,6 @@ autoUpdater.on('update-available', () => {
   mainWindow.webContents.send('update_available');
 });
 autoUpdater.on('update-downloaded', () => {
+  console.log("test")
   mainWindow.webContents.send('update_downloaded');
 });
